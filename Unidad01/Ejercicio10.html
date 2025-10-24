@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 10</title>
+        <script>
+            function cambiarTexto() {
+                var parrafo = document.getElementById("parrafo1");
+                parrafo.innerHTML = "¡El texto ha cambiado con JavaScript!";
+                parrafo.classList.add("rojo");
+            }
+        </script>
+        <style>
+            p {
+                color: black;
+            }
+            .rojo {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="parrafo1">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu mi eget purus commodo finibus.
+            Proin augue sem, tincidunt eget felis sagittis, venenatis dictum orci.
+            Curabitur ullamcorper diam eu magna gravida, eu efficitur arcu tempus.
+            Pellentesque interdum nisi eget malesuada egestas.
+            Aenean aliquam nulla mi, nec ullamcorper dui faucibus ut.
+            Nullam suscipit felis maximus.
+        </p>
+        <button onclick="cambiarTexto()">Cambiar texto</button>
+    </body>
+</html>
