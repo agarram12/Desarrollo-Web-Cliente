@@ -104,6 +104,61 @@
          let findvalor = arr8.find(function(e) { return e === 6});
          let findvalor2 = arr8.find(e => e === 10);
          console.log(findvalor, findvalor2);
+         // buscando 2
+         arr8 = [2,6,7,8];
+         let findIndex = arr8.indexOf(6);
+         let findIndex2 = arr8.indexOf(10);
+         console.log(findIndex, findIndex2);
+         console.log(findIndex, findIndex2);
+         let findIndex3 = arr8.indexOf(6,2);
+         let animales = ["perro", "zardinas", "gato", "boquerones", "perro"];
+         let lastperro = animales.lastIndexOf("perro");
+         // ordenando
+         let nombres = ["Javi", "Alicia", "Fatima", "Maria", "Berto"];
+         nombres.sort();
+         let edades = [18,72,33,56,40];
+         edades.sort();
+         edades.reverse();
+         console.log(nombres,edades);
+
+         let valores1 = [1,2,3];
+         let valores2 = [4,5,6];
+         let valores3 = [7,8,9];
+         let arrayDeArrays = [valores1,valores2,valores3];
+         let arrayDeArrays2 = [[1,2,3],[4,5,6],[7,8,9]];
+         let valor1=arrayDeArrays[0][1];
+         console.log(valor1);
+         arrayDeArrays=[arrayDeArrays,arrayDeArrays,arrayDeArrays];
+         let valor = arrayDeArrays[1][2][2];
+         console.log(valor);
+        /*
+         let max, control;
+         max = parseInt(prompt("Número máximo"));
+         for (control=0; control < max; control++) {
+            if (control % 3 == 2) {
+                console.log(control);
+            }
+         }
+        */
+        
+        let arr = [];
+        for (let i = 0; i < 100; i+=2) {
+            arr.push(i);
+        }
+
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i]);
+        }
+        let nombre = ["pepe", "luis", "pepa", "jose", "josefa", "paula"];
+        for (let i = 0; i < nombres.length; i++) {
+            if (nombre[i].startsWith("p")) {
+                delete nombre[i];
+                continue;
+            }
+            nombre[i] = "Hola " + nombre[i];
+        }
+        console.log(nombre);
+
         </script>
     </head>
     <body>
