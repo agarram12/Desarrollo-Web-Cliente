@@ -86,7 +86,7 @@
          console.log(arr);
          arr.splice(2,2, "asdsd","sddsddd");
          console.log(arr);
-         */
+         
          let arr5 = [1,2,3];
          let arr6 = [4,5,6];
          let arr7 = arr5.concat(arr6);
@@ -131,6 +131,7 @@
          arrayDeArrays=[arrayDeArrays,arrayDeArrays,arrayDeArrays];
          let valor = arrayDeArrays[1][2][2];
          console.log(valor);
+         */
         /*
          let max, control;
          max = parseInt(prompt("Número máximo"));
@@ -140,7 +141,7 @@
             }
          }
         */
-        
+        /*
         let arr = [];
         for (let i = 0; i < 100; i+=2) {
             arr.push(i);
@@ -149,16 +150,66 @@
         for (let i = 0; i < arr.length; i++) {
             console.log(arr[i]);
         }
-        let nombre = ["pepe", "luis", "pepa", "jose", "josefa", "paula"];
-        for (let i = 0; i < nombres.length; i++) {
+
+        */
+        /* let nombre = ["pepe", "luis", "pepa", "jose", "josefa", "paula"];
+        for (let i = 0; i <= nombres.length; i++) {
             if (nombre[i].startsWith("p")) {
                 delete nombre[i];
-                continue;
+                continue
             }
             nombre[i] = "Hola " + nombre[i];
         }
         console.log(nombre);
-
+        */
+       /*
+        let nombres = ["pepe", "lui", "pepa", "jose", "josefa", "paula"];
+        for (let i = 0; i < nombres.length; i ++){
+            if(nombres[i].startsWith("p")){
+            delete nombres[i];
+            continue;
+        }
+        nombres[i] = "Hola " + nombres[i];
+    }
+        console.log(nombres);
+        */
+       /*
+       let coche = {
+           model: "Golf",
+           make: "Volkswagen",
+           year: 1999,
+           color: "black",
+           }
+        for (let prop in coche) {
+            console.log(coche[prop]);
+            console.log(prop)
+        }
+        let nombres = ["pepe", "lui", "pepa", "jose", "josefa", "paula"];
+        for (let nombre of nombres) {
+            console.log(nombre);
+        }
+        let arrKeys = Object.keys(coche);
+        console.log(arrKeys);
+        
+        for(let key of Object.keys(coche)) {
+            console.log(key);
+        }
+        
+        for(let key of Object.values(coche)) {
+            console.log(key);
+        }
+        */
+        let coche = {
+           model: "Golf",
+           make: "Volkswagen",
+           year: 1999,
+           color: "black",
+           }
+        let arrEntrada = Object.entries(coche);
+        console.log(arrEntrada);
+        for (const [clave, valor] of Object.entries(coche)) {
+            console.log(clave, ":", valor);
+        }
         </script>
     </head>
     <body>
