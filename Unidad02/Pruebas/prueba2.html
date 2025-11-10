@@ -199,17 +199,59 @@
             console.log(key);
         }
         */
-        let coche = {
-           model: "Golf",
-           make: "Volkswagen",
-           year: 1999,
-           color: "black",
-           }
-        let arrEntrada = Object.entries(coche);
+        let coches = [
+            {
+                model: "Golf",
+                make: "Volkswagen",
+                year: 1999,
+                color: "black",
+            },
+            {
+                modelo: "Picanto",
+                marca: "Kia",
+                año: 2020,
+                color: "rojo"
+            },
+            {
+                modelo: "Peugeot",
+                marca: "207",
+                año: 2021,
+                color: "negro"
+            }
+        ];
+        /* let arrEntrada = Object.entries(coche);
         console.log(arrEntrada);
         for (const [clave, valor] of Object.entries(coche)) {
             console.log(clave, ":", valor);
         }
+        */
+       for(let i = 0;i < coches.length;i++) {
+            if(coches[i].año >= 2020) {
+                if(coches[i].color === "negro") {
+                    console.log("Tengo coche nuevo: ", coches[i]);
+                }
+            }
+        }
+        for (let coche of coches) {
+            if(coche.color != "negro") {
+                continue;
+            }
+            if(coche.año >= 2020) {
+                console.log("Nuevecito en flor", coche)
+            }
+        }
+
+        // -------FECHAS-------
+        const d = new Date("2025-03-25");
+        const a = new Date(2018, 11, 24, 10, 33, 30, 0);
+        let ahora = Date.now();
+        console.log("Día semana: " , d.getDay());
+        console.log("Día: " , d.getDate());
+        console.log("Mes: " , d.getMonth());
+        console.log("Año: " , d.getFullYear());
+        console.log("Segundos: " , d.getSeconds());
+        console.log("Milisegundos: " , d.getMilliseconds());
+
         </script>
     </head>
     <body>
