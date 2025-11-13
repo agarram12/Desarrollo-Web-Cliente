@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora</title>
+        <script>
+            let notas = [];
+            let media = 0;
+            for(let i=0;i < 5;i++) {
+                let nota = Number(prompt("Introduce las notas una a una: "));
+                notas.push(nota);
+            }
+            for (let nota of notas) {
+                media += nota;
+            }
+            media = media / 5;
+            if (media < 5) {
+                console.log("Suspenso");
+            } else if (media >= 5 && media <= 6.9) {
+                console.log("Aprobado");
+            } else if (media >= 7 && media <= 8.9) {
+                console.log("Notable");
+            } else if (media <= 9) {
+                console.log("Sobresaliente");
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
