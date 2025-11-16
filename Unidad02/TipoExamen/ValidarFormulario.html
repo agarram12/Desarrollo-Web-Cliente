@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 14</title>
+        <script>
+            document.getElementById("contacto").addEventListener("submit", e => {
+                e.preventDefault();
+                let valido = true;
+                const nombre = document.getElementById("nombre").value;
+                const email = document.getElementById("email").value;
+                const mensaje = document.getElementById("mensaje").value;
+                document.getElementById("errorNombre").textContent = "";
+                document.getElementById("errorEmail").textContent = "";
+                document.getElementById("errorMensaje").textContent = "";
+                if(nombre.length < 3){
+                    document.getElementById("errorNombre").textContent = "Nombre demasiado corto";
+                    valido = false;
+                }
+                if(!email.includes("@") || !email.includes(".")){
+                    document.getElementById("errorEmail").textContent = "Email inválido";
+                    valido = false;
+                }
+                if(mensaje.trim() === ""){
+                    document.getElementById("errorMensaje").textContent = "Mensaje vacío";
+                    valido = false;
+                }
+                if(valido) alert("Formulario enviado correctamente");
+            });
+        </script>
+    </head>
+    <body>
+        <form id="contacto">
+        <input type="text" id="nombre" placeholder="Nombre"><span id="errorNombre" style="color:red"></span><br>
+        <input type="email" id="email" placeholder="Email"><span id="errorEmail" style="color:red"></span><br>
+        <textarea id="mensaje" placeholder="Mensaje"></textarea><span id="errorMensaje" style="color:red"></span><br>
+        <button type="submit">Enviar</button>
+</form>
+    </body>
+</html>

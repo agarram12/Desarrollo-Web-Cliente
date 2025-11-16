@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=ç, initial-scale=1.0">
+        <title>Ejercicio 10</title>
+        <script>
+            const preguntas = [
+            {
+                pregunta: "¿Cuál es la capital de Francia?",
+                opciones: ["1. Berlín", "2. Madrid", "3. París", "4. Roma"],
+                respuestaCorrecta: 3
+            },
+            {
+                pregunta: "¿Cuál es el lenguaje principal para desarrollo web del lado del cliente?",
+                opciones: ["1. Python", "2. JavaScript", "3. C++", "4. Java"],
+                respuestaCorrecta: 2
+            },
+            {
+                pregunta: "¿Cuál es el resultado de 5 + 7?",
+                opciones: ["1. 10", "2. 12", "3. 14", "4. 11"],
+                respuestaCorrecta: 2
+            }
+            ];
+
+            let puntuacion = 0;
+
+            for (let i = 0; i < preguntas.length; i++) {
+            const preguntaActual = preguntas[i];
+            console.log(preguntaActual.pregunta);
+                for (let opcion of preguntaActual.opciones) {
+                    console.log(opcion);
+                }
+                let respuesta = parseInt(prompt("Introduce el número de tu respuesta:"));
+                if (respuesta === preguntaActual.respuestaCorrecta) {
+                    console.log("¡Correcto!\n");
+                    puntuacion++;
+                } else {
+                    console.log("Incorrecto. La respuesta correcta era: " + 
+                                preguntaActual.respuestaCorrecta + "\n");
+                }
+            }
+            console.log(`Has acertado ${puntuacion} de ${preguntas.length} preguntas.`);
+            let porcentaje = (puntuacion / preguntas.length) * 100;
+            console.log("Porcentaje de aciertos: " + porcentaje.toFixed(2));
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

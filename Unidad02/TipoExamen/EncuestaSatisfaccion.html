@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20</title>
+    <script>
+        document.getElementById("encuesta").addEventListener("submit", e => {
+        e.preventDefault();
+        const seleccion = document.querySelector('input[name="estrella"]:checked');
+        const mensaje = document.getElementById("mensaje");
+
+        if(!seleccion){
+            mensaje.textContent = "Selecciona una puntuación";
+            return;
+        }
+
+        const valor = parseInt(seleccion.value);
+        if(valor <= 2) mensaje.textContent = "Lamentamos tu experiencia.";
+        else if(valor <= 4) mensaje.textContent = "Gracias por tu opinión.";
+        else mensaje.textContent = "Nos alegra que te haya encantado.";
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

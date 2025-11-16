@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 9</title>
+        <script>
+            let ventas = [120,340,560,80,230,600,400];
+            // total ventas
+            let totalVentas = ventas.reduce((total,numero) => {
+                return total + numero;
+            }, 0)
+            // promedio
+            let promedio = totalVentas / ventas.length();
+            // venta máxima
+            let maximo = Math.max(ventas);
+            let minimo = Math.min(ventas);
+            // superan 300€
+            let supera = ventas.filter(ventas > 300);
+            console.log("Total ventas: " + totalVentas);
+            console.log("Promedio: " + promedio);
+            console.log("Valor máximo ventas: " + maximo);
+            console.log("Valor minimo ventas: " + minimo);
+            console.log("Superan 300€: " + supera);
+            </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

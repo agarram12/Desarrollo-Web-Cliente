@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 7</title>
+        <script>
+            let jugadores = []
+            for(let i = 0; i < 5; i++) {
+                let nombre = prompt("Introduce el nombre del jugador: " + (i+1));
+                let puntuacion = Number(prompt("Introduce la puntiación que ha tenido " + nombre));
+
+                jugadores.push({
+                    nombre: nombre,
+                    puntuacion: puntuacion
+                });
+            }
+            // mayor puntuacion
+            let mayor = 0;
+            let jugadorMasPuntos = null;
+
+            for (let jugador of jugadores) {
+                if (jugador.puntuacion > mayor) {
+                    mayor = jugador.puntuacion;
+                    jugadorMasPuntos = jugador;
+                }
+            }
+            console.log("Jugador con más puntos: " + jugadorMasPuntos.nombre + " con " + jugadorMasPuntos.puntuacion + " puntos.");
+            let suma = 0;
+            for (let jugador of jugadores) {
+                suma+= jugador.puntuacion;
+            }
+            let promedio = suma / jugadores.length;
+            console.log("Promedio de puntuaciones: ", promedio);
+            let nombresOrdenados = [];
+            for (let jugador of jugadores) {
+                nombresOrdenados.push(jugador.nombre);
+            }
+            nombresOrdenados.sort();
+            console.log("Nombres ordenados alfabéticamente:", nombresOrdenados);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

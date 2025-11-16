@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gestión de inventario</title>
+        <script>
+            let productos = [
+                {nombre: "camiseta", precio: 20, stock: 10},
+                {nombre: "pantalón", precio: 30, stock: 5},
+                {nombre: "zapatos", precio: 50, stock: 3}
+            ];
+            let opt = 0;
+            while(opt != 5) {
+                opt = Number(prompt(
+                    "MENÚ \n" +
+                    "1.- Ver todos los productos\n" +
+                    "2.- Buscar un producto por nombre\n" +
+                    "3.- Mostrar el total del valor del stock\n" +
+                    "4.- Añadir nuevo producto\n" +
+                    "5.- Salir"
+                ));
+                switch(opt) {
+                    case 1:
+                        console.log("Listado de productos \n");
+                            for (let producto of productos) {
+                            console.log("Producto: " + producto.nombre);
+                            console.log("Precio: " + producto.precio);
+                            console.log("Stock: " + producto.stock);
+                    }
+                    break;
+                    case 2:
+                        let busqueda = prompt("Introduce el nombre de producto a buscar");
+                        let encontrado = false;
+                        for (let producto of productos) {
+                            if (producto.nombre.toLowerCase() === busqueda.toLowerCase()) {
+                                console.log("Producto: " + producto.nombre);
+                                console.log("Precio: " + producto.precio);
+                                console.log("Stock: " + producto.stock);
+                                encontrado = true;
+                            }
+                        }
+                        if (!encontrado) {
+                            console.log("El producto no existe");
+                        }
+                    break;
+                    case 3:
+                        let total = productos.reduce((acumulador, producto) => {
+                            return acumulador + (producto.precio * producto.stock);
+                        }, 0);
+                    break;
+                    case 4: 
+                        let nombreNuevo = prompt("Introduce el nombre del producto");
+                        let precioNuevo = Number(prompt("Introduce el precio del producto"));
+                        let stockNuevo = Number(prompt("Introduce el stock"));
+                        productos.push({
+                            nombre: nombreNuevo,
+                            precio: precioNuevo,
+                            stock: stockNuevo
+                        });
+                        console.log("Se ha añadido el producto");
+                    break;
+                    case 5:
+                        console.log("Saliendo...")
+                    break;
+                    default:
+                        console.log("Introduce una opción válida");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
