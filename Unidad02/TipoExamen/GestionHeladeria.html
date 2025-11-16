@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script>
+            let nombre = prompt("Introduce tú nombre.");
+            let sabor = prompt("Introduce qué sabor quieres (vainilla 2€ | chocolate 1€ | fresa 1.50€ | menta 2.50€ )");
+            let tamano = prompt("Elige el tamaño (pequeño 1€ | mediano 1.5€ | grande 2€)");
+            tamano = tamano.replace("ñ", "n");
+            let precios = {
+                vainilla: 2,
+                chocolate: 1,
+                fresa: 1.5,
+                menta: 2.5
+            };
+            
+            let tamanos = {
+                pequeno: 1,
+                mediano: 1.5,
+                grande: 2
+            };
+
+            let precioSabor = precios[sabor];
+            let precioTamano = tamanos[tamano];
+            let total = precioSabor * precioTamano;
+
+            // ticket
+            console.log("--TICKET COMPRA--");
+            console.log(`Cliente: ${nombre}`);
+            console.log(`Sabor: ${sabor}`);
+            console.log(`Tamaño: ${tamano}`);
+            console.log(`Total: ${total}€`);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
