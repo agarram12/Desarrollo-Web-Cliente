@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Calculadora de Presupuestos</title>
+        </head>
+    <body>
+        <h2>Calculadora de Presupuesto</h2>
+        <label>Número de páginas: <input type="number" id="paginas" value="1"></label><br>
+        <label><input type="checkbox" id="seo"> Incluir SEO</label><br>
+        <label><input type="checkbox" id="mantenimiento"> Incluir mantenimiento mensual</label><br>
+        <button id="calcular">Calcular presupuesto</button>
+        <p id="resultado"></p>
+        <script>
+            document.getElementById("calcular").addEventListener("click", () => {
+                let paginas = parseInt(document.getElementById("paginas").value);
+                let seo = document.getElementById("seo").checked;
+                let mantenimiento = document.getElementById("mantenimiento").checked;
+                let total = 500 + (paginas - 1) * 50;
+                if(seo) total += 300;
+                if(mantenimiento) total += 200;
+                const resultado = document.getElementById("resultado");
+                resultado.textContent = `Total: €${total}`;
+                resultado.style.color = total > 1000 ? "red" : "green";
+            });
+    </script>
+    </body>
+</html>

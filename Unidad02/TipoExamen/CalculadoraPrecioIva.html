@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+    <script>
+        document.getElementById("calcular").addEventListener("click", () => {
+        let precio = parseFloat(document.getElementById("precio").value);
+        let descuento = parseFloat(document.getElementById("descuento").value);
+        let iva = parseFloat(document.getElementById("iva").value);
+
+        if(descuento > 50) alert("Descuento excesivo");
+
+        let precioConDescuento = precio * (1 - descuento/100);
+        let precioFinal = precioConDescuento * (1 + iva/100);
+    
+        document.getElementById("resultado").textContent = `Precio final: €${precioFinal.toFixed(2)}`;
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

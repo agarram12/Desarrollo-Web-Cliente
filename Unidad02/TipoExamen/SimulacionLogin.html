@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Simulación de login</title>
+        <script>
+            let usuario = {
+                nombre: "Álvaro",
+                clave: 1936,
+                intentos: 3
+            }
+            let entrar = false;
+            while (usuario.intentos > 0 && !entrar) {
+                let nombre = prompt("Introduce el nombre.");
+                let clave = prompt("Introduce la clave");
+                if (nombre === usuario.nombre && clave === usuario.clave) {
+                    entrar = true;
+                } else {
+                    usuario.intentos--;
+                    alert("Datos incorrectos. Te quedan " + usuario.intentos + " intentos.");
+                }
+            }
+
+            if(entrar) {
+                alert("Acceso garantizado");
+            } else {
+                alert("Se han agotado los intentos, intentalo más tarde");
+            }
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

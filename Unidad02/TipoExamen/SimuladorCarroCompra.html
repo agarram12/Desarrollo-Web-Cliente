@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const productos = [
+            {nombre: "Producto A", precio: 100},
+            {nombre: "Producto B", precio: 200},
+            {nombre: "Producto C", precio: 50}
+        ];
+        let carrito = [];
+
+        function renderizarProductos(){
+        const div = document.getElementById("productos");
+        div.innerHTML = "";
+        productos.forEach((prod, i) => {
+            const btn = document.createElement("button");
+            btn.textContent = `Añadir ${prod.nombre} (€${prod.precio})`;
+            btn.addEventListener("click", () => {
+            carrito.push(prod);
+            actualizarTotal();
+            });
+            div.appendChild(btn);
+            div.appendChild(document.createElement("br"));
+        });
+        }
+        function actualizarTotal(){
+        const total = carrito.reduce((acc, prod) => acc + prod.precio, 0);
+        document.getElementById("total").textContent = total;
+        }
+        document.getElementById("vaciar").addEventListener("click", () => {
+        carrito = [];
+        actualizarTotal();
+        });
+        renderizarProductos();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

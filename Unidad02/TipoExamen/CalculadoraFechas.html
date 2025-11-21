@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 6</title>
+        <script>
+            let entrada = prompt("Introduce tu fecha de nacimiento (AAAA-MM-DD):");
+            let nacimiento = new Date(entrada);
+            let hoy = new Date();
+
+            // EDAD
+            let edad = hoy.getFullYear() - nacimiento.getFullYear();
+            let mesActual = hoy.getMonth();
+            let mesNacimiento = nacimiento.getMonth();
+            let diaActual = hoy.getDate();
+            let diaNacimiento = nacimiento.getDate();
+
+            if (mesActual < mesNacimiento || (mesActual === mesNacimiento && diaActual < diaNacimiento)) {
+                edad--;
+            }
+
+            // PRÓXIMO CUMPLEAÑOS
+            let proximoCumple = new Date(hoy.getFullYear(), nacimiento.getMonth(), nacimiento.getDate());
+            if (proximoCumple < hoy) {
+                proximoCumple.setFullYear(hoy.getFullYear() + 1);
+            }
+
+            let diasFaltan = Math.ceil((proximoCumple - hoy) / (1000 * 60 * 60 * 24));
+
+            // AÑO BISIESTO
+            let year = nacimiento.getFullYear();
+            let bisiesto = (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+
+            console.log("Edad: " + edad);
+            console.log("Días para el próximo cumpleaños: " + diasFaltan);
+            console.log("Nació en año bisiesto " + (bisiesto ? "Sí" : "No"));
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

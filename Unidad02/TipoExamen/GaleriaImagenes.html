@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const imagenes = [
+            "https://via.placeholder.com/300",
+            "https://via.placeholder.com/300/ff0000",
+            "https://via.placeholder.com/300/00ff00"
+        ];
+        let indice = 0;
+        const imgGrande = document.getElementById("grande");
+
+        document.querySelectorAll("#miniaturas img").forEach((img, i) => {
+        img.addEventListener("click", () => {
+            indice = i;
+            imgGrande.src = imagenes[indice];
+        });
+        });
+        document.getElementById("prev").addEventListener("click", () => {
+        indice = (indice - 1 + imagenes.length) % imagenes.length;
+        imgGrande.src = imagenes[indice];
+        });
+        document.getElementById("next").addEventListener("click", () => {
+        indice = (indice + 1) % imagenes.length;
+        imgGrande.src = imagenes[indice];
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

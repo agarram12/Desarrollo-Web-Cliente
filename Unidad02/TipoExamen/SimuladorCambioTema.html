@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19</title>
+    <script>
+        document.getElementById("tema").addEventListener("click", () => {
+        document.body.classList.toggle("oscuro");
+        });
+
+        const estilo = document.createElement("style");
+        estilo.textContent = `
+        body.oscuro { background-color: black; color: white; }
+        body { background-color: white; color: black; transition: 0.3s; }
+        `;
+        document.head.appendChild(estilo);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+<<<<<<< HEAD
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,4 +14,34 @@
     <body>
         
     </body>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizador de texto</title>
+    <script>
+        let frase = prompt("Introduce una frase para analizar");
+        let palabras = frase.trim().split(" ");
+        let numeroPalabras = palabras.length;
+        // contar número de letras a
+        let contarA = 0;
+        let minuscula = frase.toLowerCase();
+        for (let letra of minuscula) {
+            if (letra === "a") {
+                contarA++;
+            }
+        } 
+        // mostrar si tiene la palabra javascript
+        let javascript = minuscula.includes("javascript");
+        console.log("Número de palabras" + numeroPalabras);
+        console.log("Número de A en la frase: " + contarA);
+        console.log(frase.toUpperCase());
+        console.log(frase.toLowerCase());
+        console.log("Contiene javascript: " + javascript);
+    </script>
+</head>
+<body>
+    
+</body>
+>>>>>>> 00ea03aa507bd169802d26c9ce253c2739f0fcc3
 </html>

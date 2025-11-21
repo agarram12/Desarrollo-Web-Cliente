@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 8</title>
+        <script>
+            let edad = Number(prompt("Introduce tu edad (0 para salir)"));
+            while (edad != 0) {
+                if (edad < 13) {
+                    console.log("Solo puedes ver dibujos");
+                } else if (edad >= 13 && edad <= 17) {
+                    console.log("Solo puedes ver peliculas juveniles");
+                } else if (edad >= 18 && edad <=65) {
+                    console.log("Puedes ver todo tipo de contenido");
+                } else {
+                    console.log("Peliculas recomendadas");
+                }
+                edad = Number(prompt("Introduce de nuevo tu edad (0 para salir)"));
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
