@@ -3,11 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Analizar texto</title>
+        <title>Ejercicio 1</title>
         <script>
-            let cadena = "Este es mi texto para contar palabras";
-            let array = cadena.split(" ");
-            let longitud = count()
+            let segundos = 0;
+            function crono() {
+                segundos++;
+            }
+            window.onload = function() {
+                setInterval(crono,1000);
+            }
         </script>
     </head>
     <body>

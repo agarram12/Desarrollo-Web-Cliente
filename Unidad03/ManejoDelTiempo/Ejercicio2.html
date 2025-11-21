@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 2</title>
+    </head>
+    <body>
+        <button id="iniciar">Iniciar</button>
+        <button id="cancelar">Cancelar</button>
+        <script>
+            let temporizador;
+            document.getElementById("iniciar").addEventListener("click", function() {
+                temporizador = setTimeout(() => {
+                    alert("Han pasado 3 segundos");
+                }, 3000);
+            });
+
+            document.getElementById("cancelar").addEventListener("click", function() {
+                clearTimeout(temporizador);
+                alert("Temporizador cancelado");
+            });
+        </script>
+    </body>
+</html>

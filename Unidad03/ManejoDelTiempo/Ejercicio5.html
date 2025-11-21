@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simulador de Carga</title>
+</head>
+<body>
+    <h2>Simulador de carga</h2>
+    <button id="iniciar">Iniciar</button>
+    <button id="parar">Parar</button>
+    <p id="estado"></p>
+    <script>
+        let intervalo;
+        let puntos = 0;
+        document.getElementById("iniciar").addEventListener("click", function () {
+            const estado = document.getElementById("estado");
+
+            clearInterval(intervalo); // evitar múltiples intervalos
+
+            intervalo = setInterval(() => {
+                puntos = (puntos + 1) % 4; // 0,1,2,3 → se repite
+                estado.textContent = "Cargando" + ".".repeat(puntos);
+            }, 500);
+        });
+        document.getElementById("parar").addEventListener("click", function () {
+            clearInterval(intervalo);
+            document.getElementById("estado").textContent = "Proceso detenido.";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temporizador Regresivo</title>
+</head>
+<body>
+
+    <h2>Temporizador regresivo</h2>
+
+    <input type="number" id="segundos" placeholder="Segundos">
+    <button id="iniciar">Iniciar</button>
+
+    <h3 id="display"></h3>
+
+    <script>
+        let cuentaAtras;
+
+        document.getElementById("iniciar").addEventListener("click", function () {
+            let tiempo = parseInt(document.getElementById("segundos").value);
+            const display = document.getElementById("display");
+
+            if (isNaN(tiempo) || tiempo <= 0) {
+                display.textContent = "Introduce un número válido.";
+                return;
+            }
+
+            display.textContent = tiempo + " segundos";
+
+            clearInterval(cuentaAtras);
+
+            cuentaAtras = setInterval(() => {
+                tiempo--;
+                display.textContent = tiempo + " segundos";
+
+                if (tiempo <= 0) {
+                    clearInterval(cuentaAtras);
+                    display.textContent = "Tiempo agotado";
+                }
+            }, 1000);
+        });
+    </script>
+
+</body>
+</html>
