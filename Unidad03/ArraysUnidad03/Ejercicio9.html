@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 9</title>
+        <script>
+            const notas = [5,8,4,7,9];
+            // ver si todos están aprobados con every
+            let todosAprobados = notas.every(nota => nota >= 5);
+            if (todosAprobados) {
+                console.log("Todos están aprobados.");
+            } else {
+                console.log("No todos están aprobados.");
+            }
+            // ver si hay algún sobresaliente con some
+            let algunSobresaliente = notas.some(nota => nota > 8);
+            if (algunSobresaliente) {
+                console.log("Hay algún sobresaliente");
+            } else {
+                console.log("No hay ningún sobresaliente");
+            }
+            // ver si hay alguna nota menor de 3
+            let menorTres = notas.some(nota => nota < 3);
+            if (menorTres) {
+                console.log("Hay alguna nota por debajo de tres");
+            } else {
+                console.log("Ninguna nota por debajo de tres");
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

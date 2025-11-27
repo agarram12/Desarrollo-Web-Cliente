@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 8</title>
+        <script>
+            const edad = [12,25,18,40,17];
+            // sacar mayores de edad
+            let mayoresEdad = edad.filter(edad => edad >= 18);
+            // edades entre 18 y 30
+            let edadesEntre = edad.filter(edad => edad >= 18 && edad <= 30 )
+            // edades pares
+            let edadesPar = edad.filter(edad => edad % 2 === 0)
+            // mostrar todo
+            console.log(mayoresEdad);
+            console.log(edadesEntre);
+            console.log(edadesPar);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
