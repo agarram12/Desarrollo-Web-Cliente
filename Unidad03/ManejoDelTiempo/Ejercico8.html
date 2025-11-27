@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temporizador con Retardo Múltiple</title>
+    <style>
+        #mensaje {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="iniciarBtn">Iniciar Temporizador</button>
+    <div id="mensaje"></div>
+
+    <script>
+        document.getElementById('iniciarBtn').addEventListener('click', function() {
+            const mensaje = document.getElementById('mensaje');
+
+            setTimeout(function() {
+                mensaje.textContent = "Preparados...";
+            }, 2000);
+
+            setTimeout(function() {
+                mensaje.textContent = "Listos...";
+            }, 4000);
+
+            setTimeout(function() {
+                mensaje.textContent = "¡YA!";
+            }, 6000);
+        });
+    </script>
+</body>
+</html>
