@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+    <script>
+        // ordenar erroneamente con sort
+        const numeros = [10,1,20,3,2];
+        console.log(numeros.sort());
+        // ordenar bien con una función (a, b) => a - b;
+        let ordenadoBien = numeros.sort((a, b) => a - b);
+        console.log(ordenadoBien);
+        // copia ordenada sin tocar original
+        let copiaOrdenado = numeros.toSorted((a, b) => a - b);
+        console.log(copiaOrdenado);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

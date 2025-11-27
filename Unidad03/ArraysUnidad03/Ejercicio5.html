@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 5</title>
+        <script>
+            const productos = [
+                { nombre: "Teclado", precio: 25 },
+                { nombre: "Monitor", precio: 180 },
+                { nombre: "Ratón", precio: 15 }
+            ];
+            // ordenar por precio ascendente
+            let ordenarPorPrecio = productos.sort((a , b) => a.precio - b.precio);
+            // ordenar por nombre alfabéticamente
+            let ordenarPorNombre = productos.sort((a , b) => a.nombre - b.nombre);
+            // Generar copia ordenada con .toSorted()
+            let copiaOrdenada = productos.toSorted((a , b) => a.precio - b.precio);
+            // mostrar todo
+            console.log(ordenarPorPrecio);
+            console.log(ordenarPorNombre);
+            console.log(copiaOrdenada);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

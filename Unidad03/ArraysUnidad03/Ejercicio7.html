@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 7</title>
+        <script>
+            let nombres = ["ana", "JUAN", "Pepe"];
+            // genera un array todo en minúsculas
+            let minuscula = nombres.map(nombre => nombre.toLowerCase());
+            // generar un array todo en mayúsculas
+            let mayuscula = nombres.map(nombre => nombre.toUpperCase());
+            // la primera letra en mayuscula
+            let primeraMayus = nombres.map(nombre => nombre.charAt(0).toUpperCase() + nombre.slice(1).toLowerCase());
+            // mostrar todo
+            console.log(minuscula);
+            console.log(mayuscula);
+            console.log(primeraMayus);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
