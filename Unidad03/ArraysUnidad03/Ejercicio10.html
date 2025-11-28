@@ -3,7 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 10</title>
+    <title>Ejercicio 10</title></head>
+    <script>
+        const alumnos = [
+            {id:1, nombre:"Ana"},
+            {id:2, nombre:"Pedro"},
+            {id:3, nombre:"Lucía"}
+        ];
+        // encontrar el alumno cuya ID sea 2
+        let encontrarAlumno = alumnos.find(alumno => alumno.id === 2);
+        // obtener posición
+        let indiceAlumno = alumnos.findIndex(alumno => alumno.id === 2);
+        // hacer lo mismo pero desde el final
+        let alumnoDesdeFinal = alumnos.findLast(alumno => alumno.id === 2);
+        let indiceAlumnoFinal = alumnos.findLastIndex(alumno => alumno.id === 2);
+        // mostrar todo
+        console.log(encontrarAlumno);
+        console.log(indiceAlumno);
+        console.log(alumnoDesdeFinal);
+        console.log(indiceAlumnoFinal);
+    </script>
 </head>
 <body>
     
