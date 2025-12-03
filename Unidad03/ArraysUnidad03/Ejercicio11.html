@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 11</title>
+        <script>
+            let tareas = [
+                {
+                    id: 1,
+                    texto: "Aprender JavaScript",
+                    completada: false
+                },
+
+                {
+                    id: 2,
+                    texto: "Hacer tareas",
+                    completada: true
+                },
+
+                {
+                    id: 3,
+                    texto: "Ir a comprar",
+                    completada: false
+                }
+            ];
+            for (let tarea of tareas) {
+                console.log("------------------");
+                console.log("Identificador: " + tarea.id);
+                console.log("Tarea pendiente: " + tarea.texto);
+                if (tarea.completada === false) {
+                    console.log("¡¡¡Tarea pendiente!!!");
+                } else {
+                    console.log("¡Completada!");
+                }
+            }
+            // Añadir una tarea nueva
+            tareas.push(
+                {
+                    id: 4,
+                    texto: "Hacer tarea de servidor",
+                    completada: false
+                }
+            );
+            // buscar por texto
+            let buscar = "Aprender JavaScript"
+            console.log("--------busqueda---------")
+            for (let tarea of tareas) {
+                if (tarea.texto === buscar) {
+                    console.log("Identificador de tarea: " + tarea.id);
+                    console.log("Nombre de la tarea: " + tarea.texto);
+                    if (tarea.completada === false) {
+                    console.log("¡¡¡Tarea pendiente!!!");
+                    } else {
+                        console.log("¡Completada!");
+                    }
+                    
+                }
+            }
+            console.log("--------fin busqueda---------");
+            // filtrar por completadas (en mi caso con el id)
+            let marcarTareaCompletada = 2;
+            for (let tarea of tareas) {
+                if (tarea.id === marcarTareaCompletada) {
+                    tarea.completada = true;
+                }
+            }
+                console.log("¡¡Tarea marcada como completa!!");
+
+            
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
