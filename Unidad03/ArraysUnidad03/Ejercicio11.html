@@ -65,7 +65,23 @@
                 }
             }
             console.log("¡¡Tarea marcada como completa!!");
-            
+            // filtrar por tareas completadas / no completadas
+            console.log("TAREAS COMPLETADAS: ");
+            for (let tarea of tareas) {
+                if (tarea.completada === true) {
+                    console.log("ID: " + tarea.id);
+                    console.log("Nombre tarea: " + tarea.texto);
+                    console.log("Estado: " + tarea.completada);
+                }
+            }
+            console.log("TAREAS INCOMPLETAS: ");
+            for (let tarea of tareas) {
+                if (tarea.completada === false) {
+                    console.log("ID: " + tarea.id);
+                    console.log("Nombre tarea: " + tarea.texto);
+                    console.log("Estado: " + tarea.completada);
+                }
+            }
         </script>
     </head>
     <body>

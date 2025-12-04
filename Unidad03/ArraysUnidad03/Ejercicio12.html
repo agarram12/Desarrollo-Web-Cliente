@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 12</title>
+        <script>
+            const conjunto = new Set();
+            conjunto.add(10);
+            conjunto.add(20);
+            // ignora el valor repetido y no se añade
+            conjunto.add(10);
+            console.log(conjunto)
+            // Métodos de Set.
+            // .size nos devuelve cuántos elementos hay en el Set
+            console.log(conjunto.size);
+            // .add nos permite añadir cualquier tipo de elemento al conjunto y los podemos encadenar
+            conjunto.add("Hola");
+            conjunto.add(4).add(true);
+            console.log(conjunto);
+            // .has Nos permite si hay un valor dentro del set
+            console.log(conjunto.has(10)); // devuelve true
+            console.log(conjunto.has("Este elemento claramente no está dentro")); // devuelve false
+            // .delete elimina un valor específico, le pasamos por valor, no por indices.
+            // además, no se puede encadenar ni poner con comas
+            conjunto.delete(20);
+            conjunto.delete(true);
+            console.log(conjunto);
+            // .clear borra TODOS los elementos del set
+            conjunto.clear();
+            console.log(conjunto);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
