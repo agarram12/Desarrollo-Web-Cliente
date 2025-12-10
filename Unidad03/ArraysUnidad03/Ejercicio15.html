@@ -10,6 +10,15 @@
             // union de sets
             const union1 = new Set([...a,...b]);
             console.log(union1)
+            // intersección
+            const interseccion = new Set([...a].filter(x => b.has(x)));
+            console.log(interseccion);
+            // diferencia
+            const diferencia = new Set([...a].filter(x => !b.has(x)));
+            console.log(diferencia);
+            // exclusión
+            const diferenciaSim = new Set([...union1].filter(x => !(a.has(x) && b.has(x))));
+            console.log(diferenciaSim);
         </script>
     </head>
     <body>

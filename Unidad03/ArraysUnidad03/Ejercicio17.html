@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 17</title>
+        <script>
+        const mapa = new Map();
+
+        // Declarar las claves de distintos tipos
+        const claveNumber = 10;
+        const claveString = "nombre";
+        const claveObject = { id: 1 };
+
+        // Usando .set()
+        mapa.set(claveNumber, "Valor para número");
+        mapa.set(claveString, "Valor para string");
+        mapa.set(claveObject, "Valor para objeto");
+
+        console.log("Map inicial:", mapa);
+
+        // .get()
+        console.log("get(10):", mapa.get(claveNumber));
+        console.log('get("nombre"):', mapa.get(claveString));
+        console.log("get(objeto):", mapa.get(claveObject));
+
+        // .has()
+        console.log("has(10):", mapa.has(claveNumber));
+        console.log('has("nombre"):', mapa.has(claveString));
+        console.log("has({id:1}):", mapa.has({ id: 1 })); 
+
+        // .set()
+        mapa.set(claveString, "Nuevo valor para string");
+        console.log("Map después de actualizar:", mapa);
+
+        // .size
+        console.log("Tamaño del Map:", mapa.size);
+
+        // .delete()
+        mapa.delete(claveNumber);
+        console.log("Map tras delete(10):", mapa);
+
+        // .clear()
+        mapa.clear();
+        console.log("Map tras clear():", mapa);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 16</title>
+    <script>
+        const set = new Set([5, "A", [1,2,3]]);
+        // ...set lo que hace es copiar los valores primitivos tal cual y nos copia el array interno
+        const copiaSet = [...set];
+        // ...structuredClone se clona completamente y no tendrá referencias al original
+        const copiaStructured = [...structuredClone(set)];
+        console.log(set);
+        console.log(copiaSet);
+        console.log(copiaStructured);
+        // modificación para mostrar diferencias
+        copiaSpread[2].push(4);
+        console.log(set);
+        console.log(copiaSet);
+        console.log(copiaStructured);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
