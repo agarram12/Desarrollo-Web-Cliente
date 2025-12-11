@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20</title>
+    <script>
+        const productos = new Map()
+        productos.set(1, { nombre: "Teclado", precio: 25});
+        productos.set(2, { nombre: "Ratón", precio: 15});
+        productos.set(3, { nombre: "Monitor", precio: 155});
+        // buscar por id
+        id_busqueda = 1;
+        console.log(productos.get(id_busqueda));
+        console.log(productos.has(2));
+        // mostrar claves
+        console.log(Array.from(productos.keys()));
+        // mostrar valores
+        console.log(Array.from(productos.values()));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

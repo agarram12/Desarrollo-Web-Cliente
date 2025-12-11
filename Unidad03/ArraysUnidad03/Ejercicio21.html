@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 21</title>
+        <script>
+            const alumnos = [
+                { alumno: "Ana", notas: [7, 8, 9] },
+                { alumno: "Luis", notas: [4, 5, 6] },
+                { alumno: "Marta", notas: [3, 4, 2] },
+                { alumno: "Juan", notas: [5, 5, 6] }
+            ];
+            // Media
+            const medias = alumnos.map( a => {
+                const media = a.notas.reduce((sum, n) => sum + n, 0) / a.notas.length;
+                return { alumno: a.alumno, media };
+             });
+            // lista aprobados
+            const aprobados = medias.filter(a => a.media >= 5);
+            // suspenso grave
+            const suspensoGrave = alumnos.some(a => a.notas.some(n => n < 3));
+            // todos media aprobados
+            const todosAprobados = medias.every(a => a.media >= 5);
+            // mostrarlo todo
+            console.log(medias);
+            console.log(aprobados);
+            console.log(suspensoGrave);
+            console.log(todosAprobados);
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

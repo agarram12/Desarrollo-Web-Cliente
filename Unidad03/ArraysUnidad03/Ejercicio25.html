@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 25</title>
+        <script>
+            // lista inventada de estudiantes con un duplicado para luego
+            const estudiantes = [
+                { id: 1, nombre: "Ana Pérez" },
+                { id: 2, nombre: "Luis García" },
+                { id: 3, nombre: "Marta López" },
+                { id: 4, nombre: "Juan Pérez" },
+                { id: 5, nombre: "Ana Pérez" },
+            ];
+            // eliminar el duplicado con set
+            let nombresUnicos = Array.from(new Set(estudiantes.map(e => JSON.stringify(e)))).map(str => JSON.parse(str));
+            console.log("Estudiantes únicos:", nombresUnicos);
+            // ordenar por apellidos
+            let ordenados = nombresUnicos.toSorted((a, b) => {
+                const apellidoA = a.nombre.split(" ").slice(-1)[0];
+                const apellidoB = b.nombre.split(" ").slice(-1)[0];
+                return apellidoA.localeCompare(apellidoB);
+            });
+            // crear un map
+            let mapaEstudiantes = new Map();
+            ordenados.forEach(e => mapaEstudiantes.set(e.id, e));
+            console.log("Map {id → alumno}:", mapaEstudiantes);
+            console.log("Ordenados por apellido:", ordenados);
+            // Buscar por Id
+            let buscarId = 3;
+            let alumnoPorId = mapaEstudiantes.get(buscarId);
+            console.log("Alumno con ID 3:", alumnoPorId);
+            // buscar palabra clave del nombre
+            let palabraClave = "Ana";
+            let resultados = ordenados.filter(e => e.nombre.toLowerCase().includes(palabraClave.toLowerCase()));
+            console.log(`Resultados que contienen "${palabraClave}":`, resultados);
+            // Lista las iniciales sin repetir
+            let iniciales = new Set(
+                ordenados.map(e => e.nombre[0].toUpperCase())
+            );
+            console.log("Iniciales únicas:", iniciales);
+
+
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 22</title>
+    <script>
+        const palabras = "Esto es un texto de pruebaaaaa árbol"
+            palabras.toLowerCase();
+            palabras.normalize("NFD");
+            palabras.replace(/[\u0300-\u036f]/g, "");
+            palabras.replace(/[^a-záéíóúüñ\s]/gi, " ");
+            palabras.split(/\s+/);
+            palabras.filter(p => p.length > 0);;
+        // mostrar palabras
+        console.log(palabras);
+        // declarar con set para que no se repitan las palabras
+        let unicas = new Set(palabras);
+        // mostrar número de palabras diferentes existen
+        console.log(unicas.size);
+        // mostrar cuantas se repiten
+        let repiticiones = new Map();
+        palabras.forEach(p => {
+            contador.set(p, (contador.get(p) || 0 ) + 1);
+        });
+        // mostrar solo las repetidas
+        for (let [palabras, veces] of contador) {
+            if (veces > 1) {
+                console.log(`"${palabra}" → ${veces} veces`);
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

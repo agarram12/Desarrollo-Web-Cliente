@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 23</title>
+        <script>
+            // inventar datos de ejemplo
+            const inventario = [
+                { id: 1, nombre: "Camiseta", categoria: "Ropa", precio: 20 },
+                { id: 2, nombre: "Pantalón", categoria: "Ropa", precio: 35 },
+                { id: 3, nombre: "Zapatos", categoria: "Calzado", precio: 50 },
+                { id: 4, nombre: "Sandalias", categoria: "Calzado", precio: 25 },
+                { id: 5, nombre: "Gorra", categoria: "Accesorios", precio: 10 },
+            ];
+            // categoias unicas
+            let categorias = new Set(inventario.Set(inventario.map(p => p.categoria)));
+            // mapa para vincular categorias
+            let mapCategorias = new Map();
+            categorias.forEach(c => {
+                mapCategorias.set(c, inventario.filter(p => p.categoria === c));                
+            });
+            // ordenar por precio
+            let masCaros = inventario.filter(p => p.precio >= 30);
+            // ordenar por nombre
+            let ordenado = inventario.toSorted((a,b) => a.nombre.localeCompare(b.nombre));
+            // ordenar por nombre con find
+            let busqueda = "zapato";
+            let buscado = inventario.find(p => p.nombre.toLowerCase() === busqueda);
+            console.log(categorias);
+            console.log(mapCategorias);
+            console.log(masCaros);
+            console.log(ordenado);
+            console.log(buscado);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

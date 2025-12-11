@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 18</title>
+        <script>
+            let mapa = new Map([
+                ["nombre", "Juan"],
+                ["edad", 25],
+                ["ciudad", "Madrid"]
+            ]);
+
+            // 1. Convertir el Map en un array clave valor
+            let arrayPar = Array.from(mapa.entries());
+            // 2. Convertir map en array solo de claves
+            let arrayClaves = Array.from(mapa.keys());
+            // 3. Convertir el map solo con los valores
+            let arrayValores = Array.from(mapa.values());
+
+            // mostrar todo
+            console.log(arrayPar);
+            console.log(arrayClaves);
+            console.log(arrayValores);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
