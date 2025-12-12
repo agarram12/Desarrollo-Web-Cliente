@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 1</title>
+        <script>
+            function establecerCookie(nombre, valor, dias) {
+                valor = encodeURIComponent(valor);
+                let fecha = new Date();
+                fecha.setDate(fecha.getTime() + (dias * 24 * 60 * 60 * 1000));
+                let expira = "expires=" + fecha.toUTCString;
+                document.cookie = nombre + "=" + valor + ";" + expira + "; path=/";
+            }
+            function obtenerCookie(nombre) {
+                let todasCookies = document.cookie;
+                let lista = todasCookies.trim(";");
+                for (let i = 0; i < lista.length; i++) {
+                    let cookie = lista[i].trim();
+                    if(cookie.startsWith(nombre + "=")) {
+                        let valor = cookie.substring(nombre.length + 1);
+                        return decodeURIComponent(valor);
+                    }
+                }
+                return null;
+            }
+            function comprobarCookie(nombre) {
+                let valor = obtenerCookie(nombre);
+                if (valor === null) {
+                    valor = prompt("Introduce tu nombre: ");
+                    if (valor && valor.trim !== "") {
+                        establecerCookie(nombre, valor, 7);
+                    }
+                } else {
+                    // valor representa el nombre ya que es lo que guarda
+                    alert("Bienvenido de nuevo, " + valor);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
