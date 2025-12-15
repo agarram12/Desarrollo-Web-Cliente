@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Ejercicio 2</title>
+        <script>
+            var actividades = [
+                {
+                    nombre: "Senderismo",
+                    tipo: "montaña",
+                    fecha: new Date("2025-07-20"),
+                    precio: 25
+                },
+                {
+                    nombre: "Buceo",
+                    tipo: "acuática",
+                    fecha: new Date("2025-08-05"),
+                    precio: 80
+                },
+                {
+                    nombre: "Kayak",
+                    tipo: "acuática",
+                    fecha: new Date("2025-06-30"),
+                    precio: 35
+                },
+                {
+                    nombre: "Escalada",
+                    tipo: "montaña",
+                    fecha: new Date("2025-09-10"),
+                    precio: 50
+                },
+                {
+                    nombre: "Ciclismo",
+                    tipo: "terrestre",
+                    fecha: new Date("2025-07-01"),
+                    precio: 20
+                }
+            ];
+
+            function normalizarTexto(texto) {
+                return texto.trim().toLowerCase();
+            }
+            // filtrar por tipo
+            function filtrarTipo(tipoBuscado) {
+                let resultado = [];
+                let normalizado = normalizarTexto(tipoBuscado);
+
+                for (let i = 0; i < actividades.length; i++) {
+                    let tipoActividad = normalizarTexto(actividades[i].tipo);
+                    if (tipoActividad === normalizado) {
+                        resultado.push(actividades[i]);
+                    }
+                }
+
+                return resultado;
+            }
+            // buscar por palabra
+            function buscarActividad(palabra) {
+                let resultado = [];
+                let palabraMinuscula = palabra.toLowerCase();
+
+                for (let i = 0; i < actividades.length; i++) {
+                    let nombreActividad = actividades[i].nombre.toLowerCase();
+                    if (nombreActividad.includes(palabraMinuscula)) {
+                        resultado.push(actividades[i]);
+                    }
+                }
+                return resultado;
+            }
+            // map de participantes
+            let participantesPorActividad = new Map();
+
+            for (let i = 0; i < actividades.length; i++) {
+                participantesPorActividad.set(actividades[i].nombre, 0);
+            }
+
+            function apuntarParticipantes(nombreActividad, cantidad) {
+                let nombreBuscado = nombreActividad.toLowerCase();
+
+                for (let [nombre, participantes] of participantesPorActividad) {
+                    if (nombre.toLowerCase() === nombreBuscado) {
+                        participantesPorActividad.set(nombre, participantes + cantidad);
+                        return;
+                    }
+                }
+                alert("La actividad no existe");
+            }
+            // dias para la actividad
+            function diasParaLaActividad(fecha) {
+                let hoy = new Date();
+                let fechaActividad = new Date(fecha);
+                let diferencia = fechaActividad - hoy;
+                let dias = Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+
+                return dias;
+            }
+            // Guardar en almacenamiento
+            localStorage.setItem("actividades", JSON.stringify(actividades));
+            let participantesArray = Array.from(participantesPorActividad);
+            sessionStorage.setItem("participantesPorActividad", JSON.stringify(participantesArray));
+            function crearCookieActividadFavorita(nombreActividad) {
+                let fecha = new Date();
+                fecha.setTime(fecha.getTime() + (5 * 24 * 60 * 60 * 1000));
+                document.cookie = "actividadFavorita=" + nombreActividad.toUpperCase() + ";expires=" + fecha.toUTCString() + "; path=/";
+            }
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

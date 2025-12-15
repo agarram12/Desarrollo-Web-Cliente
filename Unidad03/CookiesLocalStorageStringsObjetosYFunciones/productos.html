@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ejercicio 3</title>
+        <script>
+            let productos = [
+                { nombre: "Portátil", precio: 900, categoria: "Electrónica" },
+                { nombre: "Auriculares", precio: 45, categoria: "Electrónica" },
+                { nombre: "Silla", precio: 120, categoria: "Muebles" },
+                { nombre: "Mesa", precio: 200, categoria: "Muebles" },
+                { nombre: "Libro", precio: 25, categoria: "Educación" }
+            ];
+
+            // obtener solo nombres
+            let nombresProductos = productos.map(p => p.nombre);
+            console.log("Nombres:", nombresProductos);
+            // precio mayor
+            let productosCaros = productos.filter(p => p.precio > 50);
+
+
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>
