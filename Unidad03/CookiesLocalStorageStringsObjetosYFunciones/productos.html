@@ -1,27 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
-        <meta charset="UTF-8">
-        <title>Ejercicio 3</title>
-        <script>
-            let productos = [
-                { nombre: "Portátil", precio: 900, categoria: "Electrónica" },
-                { nombre: "Auriculares", precio: 45, categoria: "Electrónica" },
-                { nombre: "Silla", precio: 120, categoria: "Muebles" },
-                { nombre: "Mesa", precio: 200, categoria: "Muebles" },
-                { nombre: "Libro", precio: 25, categoria: "Educación" }
-            ];
-
-            // obtener solo nombres
-            let nombresProductos = productos.map(p => p.nombre);
-            console.log("Nombres:", nombresProductos);
-            // precio mayor
-            let productosCaros = productos.filter(p => p.precio > 50);
-
-
-        </script>
+    <meta charset="UTF-8">
+    <title>Gestión de Productos</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        h2 { margin-top: 25px; }
+        pre { background: #f4f4f4; padding: 10px; }
+    </style>
     </head>
     <body>
+
+    <h1>Gestión de Productos</h1>
+
+    <script>
+        const productos = [
+            { nombre: "Portátil", precio: 850, categoria: "Tecnología" },
+            { nombre: "Ratón", precio: 25, categoria: "Tecnología" },
+            { nombre: "Teclado", precio: 45, categoria: "Tecnología" },
+            { nombre: "Silla", precio: 120, categoria: "Muebles" },
+            { nombre: "Mesa", precio: 200, categoria: "Muebles" },
+            { nombre: "Lámpara", precio: 40, categoria: "Decoración" }
+        ];
+
+        let crearSeccion = (titulo, contenido) => {
+            let h2 = document.createElement("h2");
+            h2.textContent = titulo;
+
+            let pre = document.createElement("pre");
+            pre.textContent = contenido;
+
+            document.body.appendChild(h2);
+            document.body.appendChild(pre);
+        };
+
+        let nombres = productos.map(p => p.nombre);
+        crearSeccion("Nombres de productos", JSON.stringify(nombres, null, 2));
+
+        let productosCaros = productos.filter(p => p.precio > 50);
+        crearSeccion("Productos > 50€", JSON.stringify(productosCaros, null, 2));
+
+        let productoEncontrado = productos.find(p => p.nombre === "Silla");
+        crearSeccion("Buscar producto 'Silla'", JSON.stringify(productoEncontrado, null, 2));
+
+        let indiceMesa = productos.findIndex(p => p.nombre === "Mesa");
+        crearSeccion("Índice de 'Mesa'", indiceMesa);
+
+        let hayBaratos = productos.some(p => p.precio < 30);
+        crearSeccion("¿Hay productos < 30€?", hayBaratos);
+
+        let todosMayores10 = productos.every(p => p.precio > 10);
+        crearSeccion("¿Todos cuestan más de 10€?", todosMayores10);
+
+        let ordenadosAsc = [...productos].sort((a, b) => a.precio - b.precio);
+        crearSeccion("Ordenados por precio (sort)", JSON.stringify(ordenadosAsc, null, 2));
+
+        let ordenadosDesc = productos.toSorted((a, b) => b.precio - a.precio);
+        crearSeccion("Ordenados por precio (toSorted)", JSON.stringify(ordenadosDesc, null, 2));
+
+        let invertidos = [...productos].reverse();
+        crearSeccion("Array invertido", JSON.stringify(invertidos, null, 2));
+
+        let categoriasUnicas = [...new Set(productos.map(p => p.categoria))];
+        crearSeccion("Categorías únicas", JSON.stringify(categoriasUnicas, null, 2));
+
+        let mapaProductos = new Map();
+        productos.forEach(p => mapaProductos.set(p.nombre, p.precio));
+
+        let preciosDesdeMap = [...mapaProductos.entries()]
+            .map(([k, v]) => `${k}: ${v}€`)
+            .join("\n");
+        crearSeccion("Precio de cada producto (Map)", preciosDesdeMap);
+
+        crearSeccion("Número de categorías", categoriasUnicas.length);
+    </script>
 
     </body>
 </html>

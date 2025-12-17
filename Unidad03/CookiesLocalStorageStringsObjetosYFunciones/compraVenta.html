@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Compra-Venta Segunda Mano</title>
+    </head>
+    <body>
+
+    <script>
+        let productos = [
+            { id: 1, titulo: "Bicicleta de montaña", precio: 250, categoria: "deporte", fechapublicacion: new Date("2025-12-01") },
+            { id: 2, titulo: "Portátil usado", precio: 450, categoria: "tecnologia", fechapublicacion: new Date("2025-12-05") },
+            { id: 3, titulo: "Mesa de madera", precio: 120, categoria: "hogar", fechapublicacion: new Date("2025-12-03") },
+            { id: 4, titulo: "Auriculares bluetooth", precio: 60, categoria: "tecnologia", fechapublicacion: new Date("2025-12-07") },
+            { id: 5, titulo: "Raqueta de tenis", precio: 80, categoria: "deporte", fechapublicacion: new Date("2025-12-08") }
+        ];
+
+        function filtrarPorCategoria(categoria) {
+            return productos.filter(p => p.categoria === categoria);
+        }
+
+        function buscarProducto(palabra) {
+            palabra = palabra.toLowerCase();
+            return productos.filter(p =>
+            p.titulo.toLowerCase().includes(palabra)
+            );
+        }
+
+        let ventas = new Map();
+
+        function registrarVenta(id) {
+            if (ventas.has(id)) {
+            ventas.set(id, ventas.get(id) + 1);
+            } else {
+            ventas.set(id, 1);
+            }
+        }
+        registrarVenta(1);
+        registrarVenta(2);
+        registrarVenta(1);
+        registrarVenta(4);
+        sessionStorage.setItem("publicaciones", JSON.stringify(productos));
+        let usuario = "CarlosVendedor";
+        let expiracion = new Date();
+        expiracion.setDate(expiracion.getDate() + 1);
+
+        document.cookie =
+            "usuarioCompras=" + usuario.toLowerCase() +
+            "; expires=" + expiracion.toUTCString() +
+            "; path=/";
+
+        console.log(filtrarPorCategoria("tecnologia"));
+        console.log(buscarProducto("mesa"));
+        console.log(ventas);
+    </script>
+
+    </body>
+</html>

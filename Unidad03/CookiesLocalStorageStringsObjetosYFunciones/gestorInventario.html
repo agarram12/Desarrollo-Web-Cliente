@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Inventario RPG</title>
+    </head>
+    <body>
+
+    <script>
+        let inventario = [];
+
+        function crearObjeto(nombre, tipo, rareza, fechaObtencion) {
+            if (!nombre.match(/^[A-Za-zÁÉÍÓÚáéíóúñÑ ]+$/)) {
+            return null;
+            }
+
+            tipo = tipo.toLowerCase();
+            rareza = rareza.toLowerCase();
+
+            let objeto = {
+            nombre: nombre,
+            tipo: tipo,
+            rareza: rareza,
+            fechaObtencion: new Date(fechaObtencion)
+            };
+
+            inventario.push(objeto);
+            return objeto;
+        }
+
+        crearObjeto("Espada Larga", "Arma", "Rara", "2025-12-10");
+        crearObjeto("Poción Vida", "Consumible", "Comun", "2025-12-12");
+        crearObjeto("Escudo Hierro", "Arma", "Comun", "2025-12-01");
+        crearObjeto("Anillo Magico", "Accesorio", "Epica", "2025-12-05");
+
+        localStorage.setItem("inventario", JSON.stringify(inventario));
+
+        let objetosPorTipo = new Map();
+
+        inventario.forEach(obj => {
+            if (objetosPorTipo.has(obj.tipo)) {
+            objetosPorTipo.set(obj.tipo, objetosPorTipo.get(obj.tipo) + 1);
+            } else {
+            objetosPorTipo.set(obj.tipo, 1);
+            }
+        });
+
+        function diasEnInventario(fecha) {
+            let hoy = new Date();
+            let diferencia = hoy - new Date(fecha);
+            return Math.floor(diferencia / (1000 * 60 * 60 * 24));
+        }
+
+        let jugador = "arthur";
+        let fechaExp = new Date();
+        fechaExp.setDate(fechaExp.getDate() + 2);
+
+        document.cookie =
+            "jugador=" + jugador.toUpperCase() +
+            "; expires=" + fechaExp.toUTCString() +
+            "; path=/";
+
+        console.log(inventario);
+        console.log(objetosPorTipo);
+        console.log(diasEnInventario(inventario[0].fechaObtencion));
+    </script>
+
+    </body>
+</html>

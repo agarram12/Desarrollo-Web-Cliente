@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8">
+    <title>Gestor de Viajes</title>
+    </head>
+    <body>
+
+    <script>
+        let destinos = [
+            { ciudad: "París", pais: "Francia", fechaobjetivo: new Date("2026-03-15"), presupuesto: 1200 },
+            { ciudad: "Roma", pais: "Italia", fechaobjetivo: new Date("2026-05-10"), presupuesto: 900 },
+            { ciudad: "Milán", pais: "Italia", fechaobjetivo: new Date("2026-06-01"), presupuesto: 1100 },
+            { ciudad: "Lisboa", pais: "Portugal", fechaobjetivo: new Date("2026-04-20"), presupuesto: 800 }
+        ];
+
+        function normalizarTexto(cadena) {
+            return cadena.trim().toLowerCase();
+        }
+
+        let paisesVisitados = new Map();
+
+        destinos.forEach(d => {
+            let paisNormalizado = normalizarTexto(d.pais);
+            if (paisesVisitados.has(paisNormalizado)) {
+            paisesVisitados.set(paisNormalizado, paisesVisitados.get(paisNormalizado) + 1);
+            } else {
+            paisesVisitados.set(paisNormalizado, 1);
+            }
+        });
+
+        function diasRestantes(fechaObjetivo) {
+            let hoy = new Date();
+            let diferencia = new Date(fechaObjetivo) - hoy;
+            return Math.ceil(diferencia / (1000 * 60 * 60 * 24));
+        }
+
+        localStorage.setItem("destinos", JSON.stringify(destinos));
+
+        let ciudadFavorita = "tokio";
+        let expira = new Date();
+        expira.setDate(expira.getDate() + 7);
+
+        document.cookie =
+            "preferenciaViaje=" + ciudadFavorita.toUpperCase() +
+            "; expires=" + expira.toUTCString() +
+            "; path=/";
+
+        function filtrarPorPais(pais) {
+            let paisNormalizado = normalizarTexto(pais);
+            return destinos.filter(d =>
+            normalizarTexto(d.pais) === paisNormalizado
+            );
+        }
+
+        console.log(destinos);
+        console.log(paisesVisitados);
+        console.log(diasRestantes(destinos[0].fechaobjetivo));
+        console.log(filtrarPorPais("italia"));
+    </script>
+
+    </body>
+</html>
