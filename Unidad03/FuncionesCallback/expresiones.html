@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Expresiones regulares</title>
+        <script>
+            const texto = `
+                Pedro nació el 1998-07-21.
+                Sonia nació el 2003-11-05.
+                La fecha incorrecta es 21-07-1998.
+                Mi correo es ejemplo123@gmail.com
+                Teléfono: 678-123-456
+                Palabras: perro, pato, saco, Sapo, mesa, sol, pico, pera
+                `;
+
+                let patron1a = /\b....\b/;
+                let patron1b = /\b[a-zA-Z]{4}\b/;
+                let patron2a = /^p/i;
+                let patron2b = /a$/;
+                let patron2c = /^p.*o$/i;
+                let patron3a = /^[ps]/i;
+                let patron3b = /^[ps].*[oa]$/i;
+                let patron4a = /^\d{2}$/;
+                let patron4b = /^\d{2,4}$/;
+                let patron4c = /disparos?/;
+                let patron5a = /\D/;
+                let patron5b = /\b[^aeiouAEIOU]\w+/;
+                // fechas y extracción
+                let patronFecha = /\d{4}-\d{2}-\d{2}/;
+                console.log("Fecha válida ", patronFecha.test("2026-01-01"));
+                let resultado = patronFecha.exec(texto);
+                console.log("Fecha encontrada: ", resultado[0]);
+            
+                // grupos de captura
+                let patronGrupo = /(\d{4})-(\d{2})-(\d{2})/;
+                let captura = patronGrupo.exec("2025-12-15");
+                // ver los valores que se han capturado
+                if (captura) {
+                    console.log(`Año: ${captura[1]}, Mes: ${captura[2]}, Día: ${captura[3]}`);
+                }
+                let patronFlags = /\d{4}/gi;
+                console.log(patronFlags.flags); 
+                console.log(patronFlags.source);
+                // lastindex
+                console.log("--- Búsqueda sucesiva ---");
+                const patronGlobal = /\d{4}-\d{2}-\d{2}/g
+                let coincide;
+                while ((coincide = patronGlobal.exec(texto)) !== null) {
+                    console.log(`Encontrado ${coincide[0]} en posición ${coincide.index}. lastIndex ahora es: ${patronGlobal.lastIndex}`);
+                }
+                let patronMail = /^\w+@\w+\.\w+$/;
+                let patronTelefono = /^\d{3}-\d{3}-\d{4}$/;
+                let patronFinal = /^[a-z][a-z0-9]{4,9}$/i;
+                console.log(patronFinal.test("A1234"));
+                console.log(patronFinal.test("1abcde"));
+                console.log(patronFinal.test("abcdefghijk"));
+                console.log(patronFinal.test("Ana123"));
+            </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

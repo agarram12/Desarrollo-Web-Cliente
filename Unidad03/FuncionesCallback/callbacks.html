@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Callbacks</title>
+        <script>
+            let nombres = ["Ana", "Luis", "Marta"];
+            function modificarArray(array, callback) {
+                // añadimos un nombre más
+                array.push("Álvaro");
+                // devolvemos el array con el valor nuevo
+                callback(array);
+            }
+            // llamar a la funcion y mostrar su tamaño
+            modificarArray(nombres, (nuevoArray) => {
+                console.log("El tamaño del array es: " + nuevoArray.length);
+            });
+            // imprimir nombres con foreach
+            nombres.forEach((nombre) => {
+                console.log(nombre);                
+            });
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

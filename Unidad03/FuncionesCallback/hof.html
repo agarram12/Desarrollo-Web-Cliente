@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOF</title>
+        <script>
+            let exito = () => console.log("Tarea completada");
+            let fallo = () => console.log("Error en la tarea");
+            function ejecutarTarea(callbackExito, callbackError) {
+                let probabilidad = Math.random();
+                if (probabilidad < 0.5 ) {
+                    callbackExito();
+                } else {
+                    callbackError();
+                }
+            }
+
+            ejecutarTarea(exito, fallo);
+            ejecutarTarea(exito, fallo);
+            ejecutarTarea(exito, fallo);
+            ejecutarTarea(exito, fallo);
+            ejecutarTarea(exito, fallo);
+            ejecutarTarea(exito, fallo);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

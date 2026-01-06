@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clausuras</title>
+        <script>
+            let valor = 10;
+            const contador = (function() {
+                let cuenta = valor;
+                return function() {
+                cuenta++;
+                return cuenta;
+                };
+            })();
+            console.log(contador());
+            console.log(contador());
+            console.log(contador());
+        </script>
+    </head>
+    <body>
+    <p>
+            a) Explica qué hace la función contador. <br>
+            b) Muestra en consola tres llamadas consecutivas a
+            contador() y explica el resultado. <br>
+            c) Modifica la función para que acepte un valor inicial 
+            para cuenta.
+    </p>
+        <p> 
+            La función contador declara una función en la que se crea una variable cuenta a valor 0. <br>
+            Tras ello se devuelve la función que aumenta el valor del contador en uno por cada llamada. <br>
+            En cada llamada se aumenta uno el valor ya que es lo que hemos definido dentro de la función
+        </p>
+        <p>
+            Se le pasa el valor de la variable que hayamos puesto a la función y a partir de ese contador se aumenta el valor
+        </p>
+    </body>
+</html>

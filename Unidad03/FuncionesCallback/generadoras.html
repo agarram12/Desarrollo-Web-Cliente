@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Funciones Generadoras</title>
+        <script>
+            function* colores() {
+                yield "Rojo";
+                yield "Verde";
+                yield "Azul";
+            }
+
+            let generarColores = colores();
+            console.log(generarColores.next());
+            console.log(generarColores.next());
+            console.log(generarColores.next());
+            // termina y aparece como undefined
+            console.log(generarColores.next());
+
+            let coloresParaBucle = colores();
+            for (let color of coloresParaBucle) {
+                console.log(color);
+            }
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
