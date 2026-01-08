@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Gestor de Viajes</title>
     </head>
-    <body>
-
     <script>
         let destinos = [
             { ciudad: "París", pais: "Francia", fechaobjetivo: new Date("2026-03-15"), presupuesto: 1200 },
@@ -23,9 +21,9 @@
         destinos.forEach(d => {
             let paisNormalizado = normalizarTexto(d.pais);
             if (paisesVisitados.has(paisNormalizado)) {
-            paisesVisitados.set(paisNormalizado, paisesVisitados.get(paisNormalizado) + 1);
+                paisesVisitados.set(paisNormalizado, paisesVisitados.get(paisNormalizado) + 1);
             } else {
-            paisesVisitados.set(paisNormalizado, 1);
+                paisesVisitados.set(paisNormalizado, 1);
             }
         });
 
@@ -40,7 +38,6 @@
         let ciudadFavorita = "tokio";
         let expira = new Date();
         expira.setDate(expira.getDate() + 7);
-
         document.cookie =
             "preferenciaViaje=" + ciudadFavorita.toUpperCase() +
             "; expires=" + expira.toUTCString() +
@@ -58,6 +55,7 @@
         console.log(diasRestantes(destinos[0].fechaobjetivo));
         console.log(filtrarPorPais("italia"));
     </script>
+    <body>
 
     </body>
 </html>
