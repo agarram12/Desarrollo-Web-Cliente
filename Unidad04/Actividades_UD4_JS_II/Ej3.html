@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let contenido = document.getElementById('contenido');
+
+      document.getElementById('btnCambiarTexto').addEventListener('click', () => {
+        let parrafos = contenido.querySelectorAll('p');
+        if (parrafos.length >= 2) {
+          parrafos[0].innerText = "Texto modificado con innerText";
+          parrafos[1].innerHTML = "Texto modificado con <strong>innerHTML</strong>";
+        }
+      });
+
+      document.getElementById('btnAñadirElemento').addEventListener('click', () => {
+        let nuevoP = document.createElement('p');
+        nuevoP.textContent = "Párrafo añadido";
+        contenido.appendChild(nuevoP);
+      });
+
+      document.getElementById('btnReemplazar').addEventListener('click', () => {
+        let primerP = contenido.querySelector('p');
+        if (primerP) {
+          let reemplazo = document.createElement('p');
+          reemplazo.textContent = "Primer párrafo reemplazado";
+          contenido.replaceChild(reemplazo, primerP);
+        }
+      });
+
+      document.getElementById('btnEliminar').addEventListener('click', () => {
+        let ultimoP = contenido.lastElementChild;
+        if (ultimoP) {
+          contenido.removeChild(ultimoP);
+        }
+      });
+
+      let primerP = contenido.querySelector('p');
+      if (primerP) {
+        let clon = primerP.cloneNode(true);
+        contenido.appendChild(clon);
+      }
+    });    
+  </script>
+</head>
+
+<body>
+  <div id="contenido">
+    <p>Primer párrafo</p>
+    <p>Segundo párrafo</p>
+  </div>
+  <button id="btnCambiarTexto">Cambiar texto</button>
+  <button id="btnAñadirElemento">Añadir párrafo</button>
+  <button id="btnReemplazar">Reemplazar primer párrafo</button>
+  <button id="btnEliminar">Eliminar último párrafo</button>
+</body>
+
+</html>

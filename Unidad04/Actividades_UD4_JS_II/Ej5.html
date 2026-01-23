@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let contenedor = document.getElementById('tarjetas');
+
+      contenedor.addEventListener('click', (event) => {
+        if (event.target.matches('button')) {
+
+          let tarjeta = event.target.closest('.tarjeta');
+          if (tarjeta) {
+            tarjeta.style.backgroundColor = 'yellow';
+          }
+
+          console.log('Botón pulsado:', event.target.innerText);
+        }
+      });
+
+      let btnCrear = document.createElement('button');
+      btnCrear.innerText = "Añadir Nueva Tarjeta";
+      btnCrear.style.display = "block";
+      btnCrear.style.marginBottom = "20px";
+      document.body.prepend(btnCrear);
+
+      btnCrear.addEventListener('click', () => {
+        let nuevaTarjeta = document.createElement('div');
+        nuevaTarjeta.className = 'tarjeta';
+        nuevaTarjeta.innerHTML = `<button>Editar Nueva</button>`;
+        contenedor.appendChild(nuevaTarjeta);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="tarjetas">
+    <div class="tarjeta"><button>Editar A</button></div>
+    <div class="tarjeta"><button>Editar B</button></div>
+  </div>
+</body>
+
+</html>

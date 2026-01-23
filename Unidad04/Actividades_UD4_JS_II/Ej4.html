@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menu = document.getElementById('menu');
+      const info = document.getElementById('info');
+
+      menu.addEventListener('click', (event) => {
+        if (event.target.tagName === 'BUTTON') {
+          event.target.style.backgroundColor = 'green';
+          event.currentTarget.style.border = '2px solid black';
+          info.innerText = event.target.innerText;
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <div id="menu">
+    <button>Opción 1</button>
+    <button>Opción 2</button>
+    <button>Opción 3</button>
+  </div>
+  <p id="info">Haz clic en un botón</p>
+</body>
+
+</html>
