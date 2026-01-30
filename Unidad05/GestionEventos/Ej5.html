@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5 - Carrusel</title>
+  <style>
+    #carrusel {
+      width: 300px;
+      height: 200px;
+      background-color: lightgray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Carrusel de imágenes</h2>
+  <div id="carrusel">Imagen 1</div>
+  <button id="detener">Detener carrusel</button>
+  <script>
+    const imagenes = ["Imagen 1", "Imagen 2", "Imagen 3", "Imagen 4"];
+    let indiceActual = 0;
+
+    const carruselDiv = document.getElementById('carrusel');
+    const botonDetener = document.getElementById('detener');
+
+    carruselDiv.textContent = imagenes[indiceActual];
+
+    let intervalo = setInterval(() => {
+      indiceActual = (indiceActual + 1) % imagenes.length;
+      carruselDiv.textContent = imagenes[indiceActual];
+    }, 3000);
+
+    botonDetener.addEventListener('click', function (event) {
+      clearInterval(intervalo);
+      console.log("Tipo de evento capturado:", event.type);
+      this.textContent = "Carrusel Detenido";
+      this.style.backgroundColor = "#ffcccc";
+    });
+  </script>
+</body>
+
+</html>
