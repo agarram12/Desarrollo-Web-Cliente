@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 4 - Location</title>
+  <script>
+    const infoUrl = document.getElementById("info-url");
+
+    const propiedades = [
+      { nombre: "URL completa", valor: location.href },
+      { nombre: "Protocolo", valor: location.protocol },
+      { nombre: "Host", valor: location.host },
+      { nombre: "Hostname", valor: location.hostname },
+      { nombre: "Puerto", valor: location.port || "(por defecto)" },
+      { nombre: "Pathname", valor: location.pathname },
+      { nombre: "Querystring", valor: location.search || "(ninguno)" },
+      { nombre: "Hash", valor: location.hash || "(ninguno)" }
+    ];
+
+    propiedades.forEach(prop => {
+      const li = document.createElement("li");
+      li.textContent = `${prop.nombre}: ${prop.valor}`;
+      infoUrl.appendChild(li);
+    });
+
+    if (location.search) {
+      const li = document.createElement("li");
+      li.textContent = "La URL contiene parámetros";
+      li.style.fontWeight = "bold";
+      infoUrl.appendChild(li);
+    }
+
+    if (location.hash) {
+      document.body.style.backgroundColor = "#ffe0b2";
+    }
+  </script>
+
+</head>
+
+<body>
+  <h2>Información de la URL</h2>
+  <ul id="info-url"></ul>
+
+</body>
+
+</html>

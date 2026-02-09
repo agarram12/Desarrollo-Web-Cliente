@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 6 - Screen y Navigator</title>
+  <script>
+    const info = document.getElementById("info-dispositivo");
+
+    const propiedades = [
+      { nombre: "Ancho de pantalla", valor: screen.width + "px" },
+      { nombre: "Alto de pantalla", valor: screen.height + "px" },
+      { nombre: "Nombre del navegador", valor: navigator.appName },
+      { nombre: "Idioma del navegador", valor: navigator.language },
+      { nombre: "Sistema operativo", valor: navigator.platform }
+    ];
+
+    propiedades.forEach(prop => {
+      const li = document.createElement("li");
+      li.textContent = `${prop.nombre}: ${prop.valor}`;
+      info.appendChild(li);
+    });
+
+    if (screen.width < 768) {
+      const li = document.createElement("li");
+      li.textContent = "Advertencia: pantalla pequeña, diseño responsive recomendado";
+      li.style.color = "red";
+      info.appendChild(li);
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <h2>Información del dispositivo</h2>
+
+  <ul id="info-dispositivo"></ul>
+
+</body>
+
+</html>

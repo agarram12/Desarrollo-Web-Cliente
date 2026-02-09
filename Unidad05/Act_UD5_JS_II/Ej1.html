@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 1</title>
+</head>
+
+<body>
+	<table id="tablaUsuarios">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Email</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Ana</td>
+				<td>ana@email.com</td>
+				<td>
+					<button class="editar">Editar</button>
+					<button class="borrar">Borrar</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Carlos</td>
+				<td>carlos@email.com</td>
+				<td>
+					<button class="editar">Editar</button>
+					<button class="borrar">Borrar</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<script>
+		const tbody = document.querySelector("#tablaUsuarios tbody");
+
+		tbody.addEventListener("click", (event) => {
+
+			if (event.target.tagName === "BUTTON") {
+				const fila = event.target.closest("tr");
+				const nombreUsuario = fila.children[0].textContent;
+				if (event.target.classList.contains("editar")) {
+					console.log("Editar usuario:", nombreUsuario);
+				}
+				if (event.target.classList.contains("borrar")) {
+					console.log("Borrar usuario:", nombreUsuario);
+				}
+			}
+		});
+		/*
+			event.currentTarget no hace el botón ya que listener está asignado al tbody, por lo que siempre
+			hace referencia al elemento que está en el listener, mientras que el event.target es el
+			elemento que hemos pulsado
+		*/
+	</script>
+
+</body>
+
+</html>

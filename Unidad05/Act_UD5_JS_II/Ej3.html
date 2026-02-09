@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 3</title>
+</head>
+
+<body>
+	<nav id="menu">
+		<ul>
+			<li>Inicio</li>
+			<li>Servicios
+				<ul>
+					<li>Web</li>
+					<li>App</li>
+				</ul>
+			</li>
+			<li>Contacto</li>
+		</ul>
+	</nav>
+	<script>
+		const nav = document.getElementById("menu");
+		const items = document.querySelectorAll("#menu li");
+		nav.addEventListener("click", () => {
+			console.log("NAV (fase de captura)");
+		}, true);
+		items.forEach(li => {
+			li.addEventListener("click", () => {
+				console.log("LI (fase de burbujeo)");
+			});
+		});
+		/*
+			Al hacer click el orden es el NAV y el LI
+			El evento se propaga primero desde el elemento más externo hacía el que queremos capturar
+			y tras ello desde el elemento clicado hacia arriba
+		*/
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 3 - Cards</title>
+  <style>
+    .card {
+      border: 1px solid #999;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .activa {
+      background-color: #d0ebff;
+    }
+  </style>
+  <script>
+    const contenedor = document.getElementById("cards");
+
+    contenedor.addEventListener("click", function (evento) {
+      if (evento.target.tagName === "BUTTON") {
+        const tarjetaActual = evento.target.closest(".card");
+        tarjetaActual.classList.toggle("activa");
+
+        const tarjetaSiguiente = tarjetaActual.nextElementSibling;
+
+        if (tarjetaSiguiente && tarjetaSiguiente.classList.contains("card")) {
+          tarjetaSiguiente.classList.toggle("activa");
+        } else {
+          console.log("No existe una tarjeta siguiente");
+        }
+      }
+    });
+  </script>
+</head>
+
+<body>
+
+  <div id="cards">
+    <div class="card">
+      <h4>Producto 1</h4>
+      <button>Seleccionar</button>
+    </div>
+
+    <div class="card">
+      <h4>Producto 2</h4>
+      <button>Seleccionar</button>
+    </div>
+
+    <div class="card">
+      <h4>Producto 3</h4>
+      <button>Seleccionar</button>
+    </div>
+  </div>
+
+</body>
+
+</html>

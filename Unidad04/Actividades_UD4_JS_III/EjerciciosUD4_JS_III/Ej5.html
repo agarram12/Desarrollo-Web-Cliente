@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 5 - History</title>
+  <script>
+    const btnAtras = document.getElementById("btnAtras");
+    const btnAdelante = document.getElementById("btnAdelante");
+    const btnCambiar = document.getElementById("btnCambiar");
+
+    console.log("Número de páginas en el historial:", history.length);
+
+    btnAtras.addEventListener("click", () => {
+      history.back();
+    });
+
+    btnAdelante.addEventListener("click", () => {
+      history.forward();
+    });
+
+    btnCambiar.addEventListener("click", () => {
+      const nuevaUrl = "nueva-pagina.html";
+      history.pushState({ info: "cambio de URL" }, "", nuevaUrl);
+      console.log("La URL ha cambiado dinámicamente a:", location.href);
+      alert("La URL ha cambiado dinámicamente");
+    });
+
+    window.addEventListener("popstate", (evento) => {
+      console.log("Estado del historial cambiado:", evento.state);
+    });
+  </script>
+
+</head>
+
+<body>
+
+  <h2>Navegación sin recargar</h2>
+
+  <button id="btnAtras">Atrás</button>
+  <button id="btnAdelante">Adelante</button>
+  <button id="btnCambiar">Cambiar URL</button>
+
+  <script>
+  </script>
+
+</body>
+
+</html>

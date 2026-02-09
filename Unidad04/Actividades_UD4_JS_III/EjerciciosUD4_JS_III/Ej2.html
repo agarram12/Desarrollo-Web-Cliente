@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 2 - Nodos y elementos</title>
+</head>
+<script>
+  // Elegir el div
+  let bloque = document.getElementById("bloque");
+  // contar nodos que devuelve childnode y children
+  console.log("childNodes: ", bloque.childNodes.length);
+  console.log("children: ", bloque.children.length);
+  // childnodes nos devuelve todos los nodos hijos, ya sea de texto,
+  // saltos de linea o texto suelto, también los nodos de comentarios
+  // y los nidos de tipo como los párrafos.
+
+  // children solo nos va a devolver nodos que sean etiquetas HTML
+  // por ejemplo, los p.
+
+  // la diferencia es que el HTML cuenta con distintos saltos de linea, 
+  // espacios en blanco, texto suelto y comentarios
+  // por lo que genera nodos que childNodes sí cuenta, pero children
+  // lo ignora completamente.
+
+    bloque.childNodes.forEach(nodo => {
+    if (nodo.nodeType === 1) {
+      nodo.style.border = "2px solid red";
+      nodo.style.backgroundColor = "#ffecec";
+      nodo.style.padding = "5px";
+    }
+  });
+
+
+    bloque.childNodes.forEach((nodo, index) => {
+    console.log(
+      `Nodo ${index}:`,
+      "nodeType =", nodo.nodeType,
+      "nodeName =", nodo.nodeName
+    );
+  });
+</script>
+<body>
+
+<div id="bloque">
+  
+  Texto suelto
+  <!-- Comentario -->
+  <p>Primer párrafo</p>
+  <p>Segundo párrafo</p>
+
+</div>
+
+</body>
+</html>

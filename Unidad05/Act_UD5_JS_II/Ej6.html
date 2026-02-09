@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 6</title>
+</head>
+
+<body>
+	<div class="card">
+		<a href="https://example.com">Ir al informe</a>
+	</div>
+	<script>
+		const card = document.querySelector(".card");
+		const enlace = document.querySelector(".card a");
+
+		card.addEventListener("click", () => {
+			console.log("Card pulsada");
+		});
+
+		enlace.addEventListener("click", (event) => {
+			event.stopPropagation();
+			console.log("Enlace pulsado");
+		});
+	</script>
+
+</body>
+
+</html>

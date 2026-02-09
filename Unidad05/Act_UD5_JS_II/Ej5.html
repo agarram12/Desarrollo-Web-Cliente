@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 5</title>
+</head>
+
+<body>
+	<ul id="tareas">
+		<li>
+			<span>Estudiar DWEC</span>
+			<button class="ok">✔</button>
+			<button class="delete">✖</button>
+		</li>
+	</ul>
+	<button id="nueva">Nueva tarea</button>
+	<script>
+		const lista = document.getElementById("tareas");
+		const btnNueva = document.getElementById("nueva");
+		lista.addEventListener("click", (event) => {
+
+			const tarea = event.target.closest("li");
+
+			if (event.target.classList.contains("ok")) {
+				tarea.classList.toggle("completada");
+			}
+
+			if (event.target.classList.contains("delete")) {
+				tarea.remove();
+			}
+		});
+
+		btnNueva.addEventListener("click", () => {
+			const li = document.createElement("li");
+
+			li.innerHTML = `
+    <span>Nueva tarea</span>
+    <button class="ok">✔</button>
+    <button class="delete">✖</button>
+  `;
+
+			lista.appendChild(li);
+		});
+
+	</script>
+
+</body>
+
+</html>
