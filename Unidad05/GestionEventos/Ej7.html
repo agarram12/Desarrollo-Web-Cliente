@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ejercicio 7 - Drag & Drop</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .contenedor {
+      width: 200px;
+      min-height: 100px;
+      background-color: lightgray;
+      padding: 10px;
+    }
+
+    .tarea {
+      background-color: lightgreen;
+      margin: 5px;
+      padding: 5px;
+      cursor: grab;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="contenedor" id="pendientes">
+    <h3>Pendientes</h3>
+    <div class="tarea" draggable="true" id="tarea1">Tarea 1</div>
+    <div class="tarea" draggable="true" id="tarea2">Tarea 2</div>
+  </div>
+  <div class="contenedor" id="completadas">
+    <h3>Completadas</h3>
+  </div>
+  <script>
+const tareas = document.querySelectorAll('.tarea');
+const contenedores = document.querySelectorAll('.contenedor');
+
+tareas.forEach(tarea => {
+    tarea.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData('text/plain', event.target.id);
+        
+        event.target.style.opacity = '0.5';
+        event.target.style.border = '2px dashed #000';
+        
+        console.log(`Evento: ${event.type} - Iniciando arrastre de: ${event.target.id}`);
+    });
+
+    tarea.addEventListener('dragend', (event) => {
+        event.target.style.opacity = '1';
+        event.target.style.border = 'none';
+        console.log(`Evento: ${event.type} - Finalizado el arrastre`);
+    });
+});
+
+contenedores.forEach(contenedor => {
+    contenedor.addEventListener('dragover', (event) => {
+        event.preventDefault();
+    });
+
+    contenedor.addEventListener('drop', (event) => {
+        event.preventDefault();
+        
+        const idTarea = event.dataTransfer.getData('text/plain');
+        const tareaArrastrada = document.getElementById(idTarea);
+        
+        event.currentTarget.appendChild(tareaArrastrada);
+        
+        console.log(`Evento: ${event.type} - Tarea soltada en ${event.currentTarget.id}`);
+    });
+});
+  </script>
+</body>
+
+</html>

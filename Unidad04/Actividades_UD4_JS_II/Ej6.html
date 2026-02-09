@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const titulo = document.getElementById('titulo');
+            const boton = document.getElementById('myButton');
+
+            titulo.textContent = "DOM listo para JS";
+
+            boton.onclick = function () {
+                alert("Botón clickeado");
+            };
+
+            function miFuncionAlerta() {
+                console.log("Este mensaje no debería aparecer si removeEventListener funciona");
+            }
+
+            boton.addEventListener('click', miFuncionAlerta);
+            boton.removeEventListener('click', miFuncionAlerta);
+        });
+    </script>
+</head>
+
+<body>
+    <h1 id="titulo">Título original</h1>
+    <button id="myButton">Clickeame</button>
+</body>
+
+</html>

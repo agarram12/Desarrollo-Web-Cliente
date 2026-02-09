@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <script>
+        let foto = document.getElementById('foto');
+        let enlace = document.getElementById('enlace');
+
+        document.getElementById('btnVer').addEventListener('click', () => {
+            console.log(foto.getAttribute('src'));
+            console.log(enlace.getAttribute('href'));
+            console.log(foto.width);
+            console.log(enlace.target);
+        });
+
+        document.getElementById('btnCambiar').addEventListener('click', () => {
+            foto.src = "img2.jpg";
+            enlace.href = "https://www.youtube.com";
+        });
+
+        document.getElementById('btnQuitar').addEventListener('click', () => {
+            foto.removeAttribute('alt');
+            enlace.removeAttribute('target');
+        });
+
+        document.getElementById('btnComprobar').addEventListener('click', () => {
+            let tieneAlt = foto.hasAttribute('alt');
+            let tieneTarget = enlace.hasAttribute('target');
+            alert("La imagen tiene alt?: " + tieneAlt + "\n y el enlace tiene target?: " + tieneTarget);
+        });
+
+        console.log(foto.getAttribute("width"));
+        console.log(foto.width);
+    </script>
+</head>
+
+<body>
+    <img id="foto" src="img1.jpg" alt="Imagen inicial" width="200">
+    <a id="enlace" href="https://www.google.com" target="_blank">Ir a Google</a>
+    <button id="btnVer">Ver atributos</button>
+    <button id="btnCambiar">Cambiar src y href</button>
+    <button id="btnQuitar">Quitar alt y target</button>
+    <button id="btnComprobar">Comprobar atributos</button>
+</body>
+
+</html>

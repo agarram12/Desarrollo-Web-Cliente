@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .resaltado {
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        .info {
+            color: blue;
+        }
+
+        .alerta {
+            color: red;
+            font-size: 1.5em;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let mensaje = document.getElementById('mensaje');
+
+            document.getElementById('btnAdd').addEventListener('click', () => {
+                mensaje.classList.add('resaltado', 'alerta');
+            });
+
+            document.getElementById('btnRemove').addEventListener('click', () => {
+                mensaje.classList.remove('resaltado', 'alerta');
+            });
+
+            document.getElementById('btnToggle').addEventListener('click', () => {
+                mensaje.classList.toggle('resaltado');
+            });
+
+            document.getElementById('btnStyle').addEventListener('click', () => {
+                mensaje.style.fontStyle = 'italic';
+                mensaje.style.border = '2px solid red';
+            });
+
+            document.querySelectorAll('button').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    console.log(mensaje.classList.contains('alerta'));
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="mensaje" class="info">Bienvenido al portal</div>
+    <button id="btnAdd">Añadir clases</button>
+    <button id="btnRemove">Quitar clases</button>
+    <button id="btnToggle">Alternar resaltado</button>
+    <button id="btnStyle">Cambiar estilo en línea</button>
+</body>
+
+</html>
