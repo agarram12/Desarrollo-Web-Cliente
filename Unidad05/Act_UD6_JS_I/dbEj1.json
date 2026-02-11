@@ -1,0 +1,39 @@
+{
+  "empleados": [
+    {
+      "id": 1,
+      "nombre": "Ana López",
+      "puesto": "Desarrolladora Frontend",
+      "departamento": "IT",
+      "salario": 28000
+    },
+    {
+      "id": 2,
+      "nombre": "Carlos Pérez",
+      "puesto": "Desarrollador Backend",
+      "departamento": "IT",
+      "salario": 32000
+    },
+    {
+      "id": 3,
+      "nombre": "Laura Gómez",
+      "puesto": "Diseñadora UX",
+      "departamento": "Diseño",
+      "salario": 26000
+    },
+    {
+      "id": 4,
+      "nombre": "Miguel Sánchez",
+      "puesto": "Responsable de Marketing",
+      "departamento": "Marketing",
+      "salario": 30000
+    },
+    {
+      "id": 5,
+      "nombre": "Sofía Martín",
+      "puesto": "Administrativa",
+      "departamento": "Administración",
+      "salario": 22000
+    }
+  ]
+}
