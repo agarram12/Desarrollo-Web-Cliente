@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 4</title>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Ejercicio 4</title>
-</head>
-
-<body>
-	<form id="registro">
-		<input type="text" name="nombre" placeholder="Nombre">
-		<input type="email" name="email" placeholder="Email">
-		<input type="password" name="password" placeholder="Contraseña">
-	</form>
-	<script>
-		const form = document.getElementById("registro");
-
-		form.addEventListener("input", (event) => {
-			const input = event.target;
-			if (input.name === "nombre") {
-				if (input.value.length < 3) {
-					input.classList.add("error");
-				} else {
-					input.classList.remove("error");
-				}
+		<style>
+			.error {
+				border: 2px solid red;
+				background-color: #ffe6e6;
 			}
-			if (input.name === "password") {
-				if (input.value.length < 6) {
-					input.classList.add("error");
-				} else {
-					input.classList.remove("error");
+		</style>
+	</head>
+
+	<body>
+		<form id="registro">
+			<input type="text" name="nombre" placeholder="Nombre">
+			<input type="email" name="email" placeholder="Email">
+			<input type="password" name="password" placeholder="Contraseña">
+		</form>
+
+		<script>
+			const form = document.getElementById("registro");
+
+			form.addEventListener("input", (event) => {
+				const input = event.target;
+
+				if (input.name === "nombre") {
+					if (input.value.length < 3) {
+						input.classList.add("error");
+					} else {
+						input.classList.remove("error");
+					}
 				}
-			}
-		});
-	</script>
 
-</body>
-
+				if (input.name === "password") {
+					if (input.value.length < 6) {
+						input.classList.add("error");
+					} else {
+						input.classList.remove("error");
+					}
+				}
+			});
+		</script>
+	</body>
 </html>

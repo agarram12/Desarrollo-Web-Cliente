@@ -1,50 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ejercicio 5</title>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Ejercicio 5</title>
-</head>
-
-<body>
-	<ul id="tareas">
-		<li>
-			<span>Estudiar DWEC</span>
-			<button class="ok">✔</button>
-			<button class="delete">✖</button>
-		</li>
-	</ul>
-	<button id="nueva">Nueva tarea</button>
-	<script>
-		const lista = document.getElementById("tareas");
-		const btnNueva = document.getElementById("nueva");
-		lista.addEventListener("click", (event) => {
-
-			const tarea = event.target.closest("li");
-
-			if (event.target.classList.contains("ok")) {
-				tarea.classList.toggle("completada");
+		<style>
+			.completada {
+				text-decoration: line-through;
+				color: gray;
 			}
+		</style>
+	</head>
 
-			if (event.target.classList.contains("delete")) {
-				tarea.remove();
-			}
-		});
+	<body>
+		<ul id="tareas">
+			<li>
+				<span>Estudiar DWEC</span>
+				<button class="ok">✔</button>
+				<button class="delete">✖</button>
+			</li>
+		</ul>
 
-		btnNueva.addEventListener("click", () => {
-			const li = document.createElement("li");
+		<button id="nueva">Nueva tarea</button>
 
-			li.innerHTML = `
-    <span>Nueva tarea</span>
-    <button class="ok">✔</button>
-    <button class="delete">✖</button>
-  `;
+		<script>
+			const lista = document.getElementById("tareas");
+			const btnNueva = document.getElementById("nueva");
 
-			lista.appendChild(li);
-		});
 
-	</script>
+			lista.addEventListener("click", (event) => {
 
-</body>
+				const tarea = event.target.closest("li");
+				if (!tarea) return;
 
+				if (event.target.classList.contains("ok")) {
+					tarea.classList.toggle("completada");
+				}
+
+				if (event.target.classList.contains("delete")) {
+					tarea.remove();
+				}
+			});
+
+			btnNueva.addEventListener("click", () => {
+				const li = document.createElement("li");
+
+				li.innerHTML = `
+					<span>Nueva tarea</span>
+					<button class="ok">✔</button>
+					<button class="delete">✖</button>
+				`;
+				lista.appendChild(li);
+			});
+			
+			/*
+			El listener lo añado como ul y no a cada botón individual y
+			el evento "click" se propaga cuando pulsamos el botón dentro
+			del li y sube hasta el ul
+
+			por eso, por muchas tareas que creemos el listener 
+			nunca se va a perder porque seguirá estando en el ul
+
+
+			event.target elemento real que pulsamos, en este caso el botón
+			event.currentTarget elemento que tiene el listener del ul
+			*/
+		</script>
+	</body>
 </html>
