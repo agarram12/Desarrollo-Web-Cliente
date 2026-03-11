@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Ejercicio 8</title>
+	<meta charset="UTF-8">
+	<title>Ejercicio 8</title>
 </head>
+
 <body>
-<section id="app">
-	<div class="bloque">
-		<button>Acción 1</button>
-	</div>
-	<div class="bloque">
-		<button>Acción 2</button>
-	</div>
-</section>
-<script></script>
+	<section id="app">
+		<div class="bloque">
+			<button>Acción 1</button>
+		</div>
+		<div class="bloque">
+			<button>Acción 2</button>
+		</div>
+	</section>
+	<script>
+		let app = document.getElementById("app");
+
+		app.addEventListener("click", function (event) {
+
+			console.log("event.target:", event.target);
+			console.log("event.currentTarget:", event.currentTarget);
+
+			if (event.eventPhase === 1) {
+				console.log("Fase del evento: Captura");
+			} else if (event.eventPhase === 2) {
+				console.log("Fase del evento: Objetivo");
+			} else if (event.eventPhase === 3) {
+				console.log("Fase del evento: Burbujeo");
+			}
+
+		}, true);
+
+
+		/*
+		En un entorno real el sistema sirve para depurar programas más complejos y que de esta forma
+		podamos saber que evento estamos lanzando.
+		Nos es útil para detectar errores en delegación, componentes que interceptan
+		clicks o problemas de propagación en aplicaciones más grandes.
+
+		Si el listener estuviera en burbujeo el evento se ejecutaría después de que el click llegue al elemento. En captura se detecta antes de llegar al
+		en burbujeo se detecta cuando el evento ya vuelve hacia el elemento padre.
+		*/
+	</script>
 </body>
+
 </html>

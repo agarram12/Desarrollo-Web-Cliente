@@ -1,20 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Ejercicio 7</title>
 </head>
+
 <body>
-<div id="notificaciones">
-  <div class="notificacion">
-    <p>Nuevo mensaje 1</p>
-    <button>Cerrar</button>
+  <div id="notificaciones">
+    <div class="notificacion">
+      <p>Nuevo mensaje 1</p>
+      <button>Cerrar</button>
+    </div>
+    <div class="notificacion">
+      <p>Nuevo mensaje 2</p>
+      <button>Cerrar</button>
+    </div>
   </div>
-  <div class="notificacion">
-    <p>Nuevo mensaje 2</p>
-    <button>Cerrar</button>
-  </div>
-</div>
-<script></script>
+  <script>
+    let contenedor = document.getElementById("notificaciones");
+
+    contenedor.addEventListener("click", function (event) {
+
+      if (event.target.tagName === "BUTTON") {
+        let notificacion = event.target.closest(".notificacion");
+        notificacion.remove();
+        return;
+      }
+
+      let notificacion = event.target.closest(".notificacion");
+      if (notificacion) {
+        let texto = notificacion.querySelector("p").textContent;
+        console.log(texto);
+      }
+
+    });
+  </script>
 </body>
+
 </html>
